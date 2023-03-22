@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jgr.springboot.reactor</groupId>
-	<artifactId>03-SpringBoot-Reactor1-Observable-Suscribe-onComplete</artifactId>
+	<artifactId>03-SpringBoot-Reactor2-map-filter</artifactId>
 	<version>V1</version>
 	<name>03-SpringBoot-Reactor</name>
 	<description>Con Reactive Streams</description>
@@ -39,6 +39,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		 <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>provided</scope>
+    </dependency>
+		
+		
 	</dependencies>
 
 	<build>
