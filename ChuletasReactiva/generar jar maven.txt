@@ -1,0 +1,10 @@
+.\mvnw clean package -DskipTests 
+
+el -DskipTests es para que no haga el test
+
+.\mvnw clean package -DskipTests
+
+install lo publica en el directorio local de maven
+
+.\mvnw install -DskipTests 
+.\mvnw dependency:resolve
