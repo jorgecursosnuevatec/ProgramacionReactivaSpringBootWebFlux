@@ -14,7 +14,7 @@ PushLog="/dev/null"
 # Mensaje
 message=$@
 if [ -z "$message" ]; then
-message="$(date)2023-03-22 Video 10 operador MAP "
+message="$(date)2023-04-05 EJEMPLOS VARIOS "
 fi
 
 start=`date +%s`

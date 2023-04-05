@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jgr.springboot.reactor</groupId>
-	<artifactId>03-SpringBoot-Reactor2-map-filter</artifactId>
+	<artifactId>03-SpringBoot-Reactor5-EjemplosVarios</artifactId>
 	<version>V1</version>
 	<name>03-SpringBoot-Reactor</name>
 	<description>Con Reactive Streams</description>

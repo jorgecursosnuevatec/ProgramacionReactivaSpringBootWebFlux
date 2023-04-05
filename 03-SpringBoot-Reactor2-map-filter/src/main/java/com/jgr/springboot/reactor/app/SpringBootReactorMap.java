@@ -28,7 +28,7 @@ public class SpringBootReactorMap implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-
+/*
 		//Hacemos un map,lo convertimos a mayuscula		
 		Flux<String> datosPrueba = Flux.just("nombreErrorRunnable1","nombreErrorRunnable2",
 				//"",  //quitar esto para provocar error,no se ejecutaria el runnable porque no acaba ok
@@ -47,11 +47,13 @@ public class SpringBootReactorMap implements CommandLineRunner{
 				error->log.error(error.getMessage()),new Runnable() {					
 					@Override
 					public void run() {
-						log.info("Ha terminado la ejecucion del flux");
+						log.info("Ha terminado la ejecucion del flux datosPrueba");
 
 					}
 				});
-
+*/
+		
+/*		
 		//Lo convertimos a objeto Usuario
 		//con el primer map lo pasamos a mayusculas
 		//con el segundo map lo pasamos a minusculas
@@ -76,8 +78,37 @@ public class SpringBootReactorMap implements CommandLineRunner{
 				error->log.error(error.getMessage()),new Runnable() {					
 					@Override
 					public void run() {
-						log.info("Ha terminado la ejecucion del flux");
+						log.info("Ha terminado la ejecucion del flux  datosPrueba2");
 
+					}
+				});
+*/
+		
+		
+		//Filter
+		Flux<Usuario> datosPrueba3 = Flux.just("nombre1 apellido1","nombre2 apellido2",				
+				"nombre3 apellido3")
+				.map(usu-> new Usuario(usu.split(" ")[0],usu.split(" ")[1]))				
+				.filter(usu->usu.getNombre().equalsIgnoreCase("nombre1"))
+				.doOnNext(elem->{
+					if(elem==null) {
+						throw new RuntimeException("datosPrueba3Vacio");
+					}
+					System.out.println("elemento->"+elem.getNombre().concat(" ").concat(elem.getApellido()));
+				})
+				.map(usuario->{				
+					usuario.setNombre(usuario.getNombre().toLowerCase());
+					usuario.setApellido(usuario.getApellido().toUpperCase());
+					return usuario;
+				})				
+				;
+		//nos suscribimos y sacamos los datos
+		datosPrueba3.subscribe(e->log.info(e.toString()),
+				error->log.error(error.getMessage()),new Runnable() {					
+					@Override
+					public void run() {
+						log.info("Ha terminado la ejecucion del flux datosPrueba3");
+						
 					}
 				});
 		
